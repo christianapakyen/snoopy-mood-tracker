@@ -1,6 +1,8 @@
 {
   "name": "snoopy-moods",
   "version": "1.0.0",
+  "description": "Snoopy Moods - An Electron app",
+  "author": "Christiana Pak Nguyen",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -25,7 +27,8 @@
     "mac": {
       "target": "dmg",
       "icon": "assets/icon.icns"
-    }
+    },
+    "publish": null
   },
   "devDependencies": {
     "electron": "^37.2.6",
