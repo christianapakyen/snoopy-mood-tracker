@@ -1,0 +1,205 @@
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #F1F5E4; /* light cream */
+  margin: 40px;
+  color: #33691E; /* dark green */
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Fuzzy Bubbles', cursive;
+  color: #33691E; /* dark green */
+  margin-bottom: 30px;
+  font-weight: 700;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+#date-header {
+  white-space: pre-line; /* allow line breaks */
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-family: 'Fuzzy Bubbles', cursive;
+  color: #33691E;
+}
+
+/* Mood Buttons Container - exactly 5 buttons visible */
+#mood-buttons {
+  display: flex;
+  overflow: hidden;
+  width: calc(5 * 70px + 4 * 25px); /* 5 buttons + 4 gaps */
+  gap: 25px;
+  scroll-behavior: smooth;
+  margin: 0 auto;
+}
+
+/* Individual mood button styles */
+#mood-buttons button {
+  background: white;
+  border: 2px solid #7CB342; /* matcha green border */
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(124, 179, 66, 0.2);
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+#mood-buttons button:hover {
+  background: rgba(124, 179, 66, 0.1);
+  border-color: #33691E; /* dark green on hover */
+  box-shadow: 0 2px 6px rgba(51, 105, 30, 0.15);
+}
+
+#mood-buttons button:hover img {
+  filter: brightness(0) invert(1);
+}
+
+#mood-buttons img {
+  width: 70px; /* fill entire button */
+  height: 70px;
+  user-select: none;
+  pointer-events: none;
+}
+
+#history {
+  max-width: 500px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+  text-align: left;
+  font-family: 'Outfit', sans-serif;
+  color: #6D4C41; /* brown accents */
+}
+
+#history li {
+  background: white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(124, 179, 66, 0.1);
+  color: #6D4C41; /* brown text */
+}
+
+#history li img {
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+}
+
+.tab {
+  background: white;
+  border: 2px solid #7CB342;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-family: 'Fuzzy Bubbles', cursive;
+  color: #33691E;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background: rgba(124, 179, 66, 0.1);
+}
+
+.tab.active {
+  background: #7CB342;
+  color: white;
+  box-shadow: 0 4px 8px rgba(124, 179, 66, 0.4);
+}
+
+.tab:focus {
+  outline: 2px solid #7CB342;
+  outline-offset: 2px;
+}
+
+.menu-container {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
+.menu-button {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 5px;
+  user-select: none;
+  color: #33691E; /* matcha dark green */
+}
+
+.menu-button:focus {
+  outline: 2px solid #7CB342;
+  outline-offset: 2px;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(124, 179, 66, 0.2);
+  border-radius: 6px;
+  z-index: 10;
+  min-width: 80px;
+}
+
+.menu-dropdown.show {
+  display: block;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e74c3c;
+  border-radius: 6px;
+}
+
+.menu-dropdown button:hover {
+  background-color: #f8d7da;
+  color: #b52a2a;
+}
+.scroll-arrow {
+  font-size: 28px;
+  cursor: pointer;
+  background-color: #a8b2a4; /* soft tan */
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(124, 179, 66, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.scroll-arrow:hover {
+  background-color: #8d9874; /* slightly darker tan */
+  transform: scale(1.1);
+}

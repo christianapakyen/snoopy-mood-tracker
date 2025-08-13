@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snoopy Mood Tracker & Diary (designed by Chrissy)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>hi gorgeous &lt;3</h1>
+  <h2 id="date-header"></h2>
+  <img
+  id="sleepy-cat"
+  src="assets/catchasingbutterfly.gif"
+  alt="Sleepy Cat"
+  style="position: fixed; bottom: 10px; left: 10px; width: 100px; height: auto; z-index: 9999;"
+/>
+
+  <!-- Tabs to switch between moods and diary -->
+  <div id="tabs" style="margin-bottom: 20px;">
+    <button id="tab-moods" class="tab active" style="cursor: pointer; margin-right: 10px;">
+      vibe check
+    </button>
+    <button id="tab-diary" class="tab" style="cursor: pointer;">
+      entries
+    </button>
+  </div>
+
+  <!-- Moods section -->
+  <section id="moods-section">
+    <h2 class="section-header">how are you feeling?</h2>
+
+    <div id="mood-carousel-container" style="display: flex; align-items: center; justify-content: center; gap: 10px; max-width: 520px; margin: auto;">
+      <button id="scroll-left" class="scroll-arrow" aria-label="Scroll moods left">‹</button>
+
+      <div id="mood-buttons" style="display: flex; overflow: hidden; width: 475px; gap: 25px;">
+        <button data-mood="happy snoopy" style="flex-shrink: 0;">
+          <img src="assets/happysnoopy.svg" alt="joyful snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="i got that dog in me" style="flex-shrink: 0;">
+          <img src="assets/thedoginquestion.svg" alt="the dog in question" width="70" height="70" />
+        </button>
+
+        <button data-mood="frankly a little disturbed snoopy" style="flex-shrink: 0;">
+          <img src="assets/snoopy_sus.svg" alt="disturbed snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="wtf is going on snoopy" style="flex-shrink: 0;">
+          <img src="assets/confusedsnoopy.svg" alt="confuzzled snoopy" width="70" height="70" />
+        </button>
+        </button>
+                <button data-mood="lab crashout snoopy" style="flex-shrink: 0;">
+          <img src="assets/labcrashoutsnoopy.svg" alt="lab crashouts snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="distressed snoopy" style="flex-shrink: 0;">
+          <img src="assets/distressed_snoopy.svg" alt="distressed snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="unbothered snoopy" style="flex-shrink: 0;">
+          <img src="assets/unbotheredmatcha_snoopy.svg" alt="unbothered snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="productive snoopy" style="flex-shrink: 0;">
+          <img src="assets/productivesnoopy.png" alt="locked in snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="sleepy snoopy" style="flex-shrink: 0;">
+          <img src="assets/sleeping.svg" alt="sleepy snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="existential snoopy" style="flex-shrink: 0;">
+          <img src="assets/existential_snoopy.svg" alt="existential snoopy" width="70" height="70" />
+        </button>
+        <button data-mood="could use a hug ngl" style="flex-shrink: 0;">
+          <img src="assets/questioningeverything.svg" alt="questioning snoopy" width="70" height="70" />
+        </button>
+                <button data-mood="buff snoopy" style="flex-shrink: 0;">
+          <img src="assets/buffsnoopy.svg" alt="buff snoopy" width="70" height="70" />
+        </button>
+        </button>
+                <button data-mood="protecting my inner peace snoopy" style="flex-shrink: 0;">
+          <img src="assets/peacefulsnoopy.svg" alt="peaceful snoopy" width="70" height="70" />
+        </button>
+        </button>
+                <button data-mood="cleaning snoopy" style="flex-shrink: 0;">
+          <img src="assets/clean snoopy.svg" alt="cleaning snoopy" width="70" height="70" />
+        </button>
+        </button>
+                <button data-mood="enjoying coffee snoopy" style="flex-shrink: 0;">
+          <img src="assets/cafesnoopy.svg" alt="cafe snoopy" width="70" height="70" />
+        </button>
+        </button>
+                <button data-mood="went to bed at a reasonable hour snoopy" style="flex-shrink: 0;">
+          <img src="assets/goodsleepsnoops.svg" alt="good sleep snoopy" width="70" height="70" />
+        </button>
+      </div>
+
+        <button id="scroll-right" class="scroll-arrow" aria-label="Scroll moods right">›</button>
+    </div>
+
+    <h2 class="section-header" style="margin-top: 40px;">listen to a tune to set the mood</h2>
+    <div id="audio-player-container" style="margin-top: 10px;">
+      <audio controls preload="none" style="width: 300px;">
+        <source src="assets/a love letter to the stars (for jess).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <h2 class="section-header" style="margin-top: 40px;">mood history</h2>
+    <div id="history"></div>
+  </section>
+
+  <!-- Diary section, hidden by default -->
+  <section id="diary-section" style="display: none;">
+    <h2 class="section-header">entries</h2>
+    <textarea
+      id="diary-input"
+      rows="6"
+      placeholder="write your thoughts here..."
+      style="width: 100%; border-radius: 8px; padding: 10px; font-family: 'Outfit', sans-serif;"
+    ></textarea>
+    <button
+      id="save-diary-btn"
+      style="margin-top: 10px; padding: 10px 20px; border-radius: 8px; background-color: #7CB342; color: white; border: none; cursor: pointer;"
+    >
+      Save Entry
+    </button>
+    <div id="diary-history" style="margin-top: 30px;"></div>
+  </section>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
